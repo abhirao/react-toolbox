@@ -131,7 +131,7 @@ const factory = (Tab, TabContent, FontIcon) => {
       return headers.map((item, idx) => {
         return React.cloneElement(item, {
           id: idx,
-          key: idx,
+          key: item.props.key || idx,
           theme: this.props.theme,
           active: this.props.index === idx,
           onClick: (event) => {
@@ -145,7 +145,7 @@ const factory = (Tab, TabContent, FontIcon) => {
     renderContents (contents) {
       const contentElements = contents.map((item, idx) => {
         return React.cloneElement(item, {
-          key: idx,
+          key: item.props.key || idx,
           theme: this.props.theme,
           active: this.props.index === idx,
           hidden: this.props.index !== idx && this.props.hideMode === 'display',
